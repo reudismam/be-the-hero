@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const {errors} = require('celebrate');
 const routes = require('./routes');
 
 var bodyParser = require('body-parser')
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(routes);
+app.use(errors());
 
 //app.use(express.json);
 
@@ -28,6 +30,8 @@ app.use(routes);
   });
 });*/
 
-app.listen(3333, function() {
+/*app.listen(3333, function() {
 	console.log('Ouvindo na porta 3333!');
-});
+});*/
+
+module.exports = app;
